@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
@@ -9,6 +9,7 @@
 
 	<typeAliases>
 	<typeAlias type="domain.Member" alias="Member"/>
+	<typeAlias type="domain.Quiz" alias="Quiz"/>
 	</typeAliases>
 
 
@@ -26,6 +27,7 @@
 	
 	<mappers>
 	<mapper resource="store/mapper/MemberMapper.xml"/>
+	<mapper resource="store/mapper/QuizMapper.xml"/>
 	</mappers>
 
 

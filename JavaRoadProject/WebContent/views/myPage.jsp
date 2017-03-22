@@ -211,9 +211,21 @@
 									<td  style="vertical-align: middle;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
 										src="${ctx }/images/myPage/bar/bar28.jpg"  width="260" height="17"></td>
 								</c:when>
-								<c:otherwise>
+								<c:when test="${member.currentProgress eq '29'}">
 									<td style="vertical-align: middle;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
 										src="${ctx }/images/myPage/bar/bar29.jpg"  width="260" height="17"></td>
+								</c:when>
+								<c:when test="${member.currentProgress eq '30'}">
+									<td style="vertical-align: middle;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
+										src="${ctx }/images/myPage/bar/bar30.jpg"  width="260" height="17"></td>
+								</c:when>
+								<c:when test="${member.currentProgress eq '31'}">
+									<td  style="vertical-align: middle;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
+										src="${ctx }/images/myPage/bar/bar31.jpg"  width="260" height="17"></td>
+								</c:when>
+								<c:otherwise>
+									<td style="vertical-align: middle;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
+										src="${ctx }/images/myPage/bar/bar32.jpg"  width="260" height="17"></td>
 								</c:otherwise>
 							</c:choose>
 							
@@ -340,12 +352,24 @@
 										src="${ctx }/images/myPage/bar/bar27.jpg" width="260" height="17"></td>
 								</c:when>
 								<c:when test="${member.goalProgress eq '28'}">
-									<td  style="vertical-align: middle;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
+									<td style="vertical-align: middle;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
 										src="${ctx }/images/myPage/bar/bar28.jpg" width="260" height="17"></td>
+								</c:when>
+								<c:when test="${member.goalProgress eq '29'}">
+									<td style="vertical-align: middle;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
+										src="${ctx }/images/myPage/bar/bar29.jpg" width="260" height="17"></td>
+								</c:when>
+								<c:when test="${member.goalProgress eq '30'}">
+									<td style="vertical-align: middle;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
+										src="${ctx }/images/myPage/bar/bar30.jpg" width="260" height="17"></td>
+								</c:when>
+								<c:when test="${member.goalProgress eq '31'}">
+									<td style="vertical-align: middle;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
+										src="${ctx }/images/myPage/bar/bar31.jpg" width="260" height="17"></td>
 								</c:when>
 								<c:otherwise>
 									<td style="vertical-align: middle;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
-										src="${ctx }/images/myPage/bar/bar29.jpg" width="260" height="17"></td>
+										src="${ctx }/images/myPage/bar/bar32.jpg" width="260" height="17"></td>
 								</c:otherwise>
 							</c:choose>
 							

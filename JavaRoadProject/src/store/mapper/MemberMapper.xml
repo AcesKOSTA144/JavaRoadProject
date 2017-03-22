@@ -35,7 +35,7 @@
 	</insert>
 	<update id="updateMember" parameterType="Member">
 		UPDATE member
-		SET password = #{password}, nickname = #{nickname}, point = #{point}, TO_DATE('timeLimit = #{timeLimit}','YYYY-MON-DD'), currentProgress = #{currentProgress, jdbcType=INTEGER}, goalProgress = #{goalProgress, jdbcType=INTEGER}
+		SET password = #{password}, nickname = #{nickname}, point = #{point}, timeLimit = #{timeLimit, jdbcType=VARCHAR}, currentProgress = #{currentProgress, jdbcType=INTEGER}, goalProgress = #{goalProgress, jdbcType=INTEGER}
 		WHERE memberId = #{memberId}
 	</update>
 	<delete id="deleteMember" parameterType="String">

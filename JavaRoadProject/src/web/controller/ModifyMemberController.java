@@ -41,12 +41,12 @@ public class ModifyMemberController extends HttpServlet {
 		member.setPassword(request.getParameter("password"));
 		member.setNickname(request.getParameter("nickname"));
 		member.setPoint(member.getPoint());
-		member.setTimeLimit(request.getParameter("timeLimit"));
+		member.setTimeLimit(request.getParameter("userdate"));
 		member.setCurrentProgress(member.getCurrentProgress());
 		member.setGoalProgress(Integer.parseInt(request.getParameter("goalProgress")));
 		
 		service.modifyMember(member);
-		response.sendRedirect(request.getContextPath() + "/views/myPage.jsp");
+		response.sendRedirect(request.getContextPath() + "/member/myPage.do?memberId=" + member.getMemberId());
 		
 		
 	}
