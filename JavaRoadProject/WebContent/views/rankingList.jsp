@@ -58,9 +58,12 @@
 								<td style="float: middle" width="600">닉네임</td>
 								<td style="float: middle" width="200">보유 포인트</td>
 							</tr>
+							<tr>
+								<td colspan="3"><hr></td>
+							</tr>
 						</thead>
 						<tbody>
-							<c:if test="${loginMember.memberId}">
+							<c:if test="${loginMember.memberId eq member.memberId}">
 								<tr>
 									<td>${rank }</td>
 									<td>${member.nickname }</td>
