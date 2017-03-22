@@ -8,10 +8,9 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class SqlSessionFactoryProvider {
+
 	private static final String resource = "store/config.xml";
 	private static SqlSessionFactory factory;
-	
-//	private SqlSessionFactoryProvider(){}
 	
 	public static SqlSessionFactory getSqlSessionFactory(){
 		if(factory == null){
@@ -24,11 +23,7 @@ public class SqlSessionFactoryProvider {
 			Reader reader = Resources.getResourceAsReader(resource);
 			factory = new SqlSessionFactoryBuilder().build(reader);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
 }

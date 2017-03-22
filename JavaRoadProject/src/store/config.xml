@@ -3,15 +3,15 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
-
 <configuration>
 <properties resource="store/datasource.properties"></properties>
-
+  
 	<typeAliases>
-	<typeAlias type="domain.Member" alias="Member"/>
+	  <typeAlias type="domain.Member" alias="Member"/>
+    <typeAlias type="domain.Answer" alias="Answer"/>
+    <typeAlias type="domain.Question" alias="Question"/>
 	</typeAliases>
-
-
+  
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC" />
@@ -25,8 +25,8 @@
 	</environments>
 	
 	<mappers>
-	<mapper resource="store/mapper/MemberMapper.xml"/>
+	  <mapper resource="store/mapper/MemberMapper.xml"/>
+    <mapper resource="store/mapper/QnAMapper.xml"/>
 	</mappers>
-
-
+  
 </configuration>
