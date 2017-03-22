@@ -43,38 +43,39 @@
 			</header>
 		</div>
 
-		<!-- Banner -->
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
 					<h3>Question and Answer</h3>
-					</div>
+					
 					
 					<div class="table-responsive">
-					<table class="table table-striped table-bordered table-hover">
+					<table class="table">
 						<colgroup>
-							<col width="100" />
-							<col width="200" />
-							<col width="100" />
-							<col width="200" />
-							<col width="200" />
-							<col width="*" />
-							<col width="100" />
+							<col width="80" align="center">
+							<col width="300" >
+							<col width="100" >
+							<col width="200" >
+							<col width="200" >
+							<col width="*" >
+							<col width="100" >
 						</colgroup>
 						<thead><br><br>
 							<tr>
-								<th class="text-center">번호</th>
+								<th class="text-center">태그</th>
 								<th class="text-center">제목</th>
 								<th class="text-center">닉네임</th>
 								<th class="text-center">작성시간</th>
-								
+								<c:if test="${isAdmin }">
+								<th>DELETE</th>
+								</c:if>
 							</tr>
 						</thead>
 						<tbody>
 						<c:choose>
 							<c:when test="${questions eq null || empty questions }">
 							<tr>
-								<th colspan="7" class="text-center">등록된 질문이 없습니다.</th>
+								<th colspan="6" class="text-center">등록된 질문이 없습니다.</th>
 							</tr>
 							 </c:when>
 							 <c:otherwise>
@@ -92,7 +93,7 @@
 						</c:choose>
 						</tbody>
 					</table>
-					<a class="btn btn-sm btn-success" href ="createQuestion.jsp">질문 등록</a>
+					<a class="button" href ="createQuestion.jsp">질문 등록</a>
 									
 					</div>
 									

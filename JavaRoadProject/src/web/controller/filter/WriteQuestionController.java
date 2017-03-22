@@ -30,11 +30,10 @@ public class WriteQuestionController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 
-		String id = request.getParameter("id");
+		
 		String title = request.getParameter("title");
 		String contents= request.getParameter("contents");
 		String tag= request.getParameter("tag");
-		String member_id=request.getParameter("member_id");
 		String member_nickname=request.getParameter("member_nickname");
 		
 		Question q = new Question();
