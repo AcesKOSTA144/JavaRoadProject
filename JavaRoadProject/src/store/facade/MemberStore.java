@@ -9,4 +9,5 @@ public interface MemberStore{
     void updateMember(Member member);
     Member selectMemberById(String memberId);
     List<Member> selectMembersOrderByPoint();
+
 }

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="store.mapper.QnAMapper">
+  
+  <resultMap type="Question" id="QuestionMap">
+  	<id property="id" column="id"/>
+  	
+  	<result property="title" column="title"/>
+  	<result property="tag" column="tag"/>
+  	<result property="contents" column="contents"/>
+  	<result property="member_id" column="member_id"/>
+  	<result property="member_nickname" column="member_nickname"/>
+  	</resultMap>
+  	
+  	<resultMap type="Answer" id="AnswerMap">
+  	<id property="id" column="id"/>
+  	
+  	<result property="question_id" column="question_id"/>
+  	<result property="contents" column="contents"/>
+  	<result property="member_id" column="member_id"/>
+  	<result property="member_nickname" column="member_nickname"/>
+   	</resultMap>
+  
+  	  	
+  	<sql id="selectQuestions">
+  		SELECT id,title,tag,contents,member_id,member_nickname FROM question_tb
+  	</sql>
+  	
+  	<sql id="selectAnswers">
+  		SELECT id,question_id,contents,member_id,member_nickname FROM answer_tb
+  	</sql>
+  	
+  	<insert id="insertQuestion" parameterType="question">
+    INSERT INTO question_tb(id,title,tag,contents,member_id,member_nickname) VALUES(#{id},#{title},#{tag},#{contents},#{member_id},#{member_nickname})
+   	</insert>
+   	
+   	<insert id="insertAnswer" parameterType="Answer">
+   	INSERT INTO answer_tb 
+  	(id,question_id,contents,member_id,member_nickname) 
+  	VALUES(#{id},#{question_id},#{contents},#{member_id},#{member_nickname})
+   	</insert>
+   	
+   	<update id="updateQuestion" parameterType="Question">
+   	UPDATE question_tb
+   	SET id=#{id},title=#{title},tag=#{tag},contents=#{contents},member_id=#{member_id},member_nickname=#{member_nickname}
+   	WHERE id=#{id}
+   	</update>
+   	
+   	<update id="updateAnswer" parameterType="Answer">
+   	UPDATE answer_tb
+   	SET id=#{id},question_id=#{question_id},contents=#{contents},member_id=#{member_id},member_nickname=#{member_nickname}
+   	WHERE id=#{id}
+   	</update>
+   	
+   	<delete id="deleteQuestion" parameterType="string">
+   	DELETE
+   	FROM question_tb
+   	WHERE id=#{id}
+   	</delete>
+   	
+   	<delete id="deleteAnswer" parameterType="string">
+   	DELETE
+   	FROM answer_tb
+   	WHERE question_id=#{question_id}
+   	</delete>
+   	
+   	<select id="selectQuestionById" parameterType="string" resultMap="QuestionMap">
+   	<include refid="selectQuestions"/>
+   	WHERE id=#{id}
+   	</select>
+   	
+   	<select id="selectQuestions" resultMap="QuestionMap">
+   	<include refid="selectQuestions"/>
+   	ORDER BY id DESC
+   	</select>
+   	
+   	<select id="selectAnswerId" parameterType="string" resultMap="AnswerMap">
+   	<include refid="selectAnswers"/>
+   	WHERE question_id=#{question_id}
+   	</select>
+   	
+   	<select id="selectQuestionsByTitle" parameterType="string" resultMap="QuestionMap">
+   	<include refid="selectQuestions"/>
+   	WHERE title=#{title}
+   	</select>
+   	
+   	<select id="selectQuestionsByContents" parameterType="string" resultMap="QuestionMap">
+   	<include refid="selectQuestions"/>
+   	WHERE contents=#{contents}
+   	</select>
+   	
+   	<select id="selectQuestionsByTag" parameterType="string" resultMap="QuestionMap">
+   	<include refid="selectQuestions"/>
+   	WHERE tag=#{tag} 
+   	</select>
+   	
+   	<select id="selectQuestionByNickname" parameterType="string" resultMap="QuestionMap">
+   	<include refid="selectQuestions"/>
+   	WHERE member_nickname = #{member_nickname}
+   	</select>
+  	 
+  
+  </mapper>
