@@ -3,33 +3,30 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
-
 <configuration>
-
-<properties resource="store/datasource.properties"/>
-
-<typeAliases>
-<typeAlias type="domain.Answer" alias="Answer"/>
-<typeAlias type="domain.Question" alias="Question"/>
-
-</typeAliases>
-
+<properties resource="store/datasource.properties"></properties>
+  
+	<typeAliases>
+	  <typeAlias type="domain.Member" alias="Member"/>
+    <typeAlias type="domain.Answer" alias="Answer"/>
+    <typeAlias type="domain.Question" alias="Question"/>
+	</typeAliases>
+  
 	<environments default="development">
 		<environment id="development">
-			<transactionManager type="JDBC"/>
-				<dataSource type="POOLED">
-					<property name="driver" value="${driver}"/>
-					<property name="url" value="${url}"/>
-					<property name="username" value="${username}"/>
-					<property name="password" value="${password}"/>
-
-				</dataSource>
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
 		</environment>
 	</environments>
+	
 	<mappers>
-	<mapper resource="store/mapper/QnAMapper.xml"/>
-	
+	  <mapper resource="store/mapper/MemberMapper.xml"/>
+    <mapper resource="store/mapper/QnAMapper.xml"/>
 	</mappers>
-	
-	
+  
 </configuration>
