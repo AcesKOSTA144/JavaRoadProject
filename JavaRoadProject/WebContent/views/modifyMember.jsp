@@ -21,7 +21,7 @@
 				<!-- Logo -->
 				<div id="logo">
 					<h1>
-						<a href="index.html">자바로드</a>
+						<a href="index.jsp">자바로드</a>
 					</h1>
 					<span>걸어서 자바속으로</span>
 				</div>
