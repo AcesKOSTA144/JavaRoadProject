@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="store.mapper.CodeMapper">
+  	<resultMap type="Code" id="codeMap">
+  		<id column="codeId" property="id"/>
+  		<result column="memberId" property="memberId"/>
+  		<result column="memberNickname" property="memberNickname"/>
+  		<result column="title" property="title"/>
+  		<result column="contents" property="contents"/>
+  		<result column="timeStamp" property="timeStamp"/>
+  		<result column="likes" property="likes"/>
+  	</resultMap>
+  	<insert id="insertCode" useGeneratedKeys="true" parameterType="Code">
+  	<selectKey keyProperty="id" resultType="int" order="BEFORE">
+  		select code_tb_seq.nextval FROM DUAL
+  	</selectKey>
+  		INSERT INTO code_tb(codeId, memberId, memberNickname, title, contents, timeStamp, likes)
+  		VALUES (#{id}, #{memberId}, #{memberNickname}, #{title}, #{contents}, sysdate, #{likes})
+  	</insert>
+  	<select id="selectCodeById" resultMap="codeMap">
+  		SELECT codeId, memberId, memberNickname, title, contents, timeStamp, likes
+  		FROM code_tb
+  		WHERE codeId = #{id}
+  	</select>
+  	<select id="selectCodes" resultMap="codeMap">
+  		SELECT codeId, memberId, memberNickname, title, contents, timeStamp, likes
+  		FROM code_tb
+  	</select>
+  	<select id="selectCodesOrderByLikes" resultMap="codeMap">
+  		SELECT codeId, memberId, memberNickname, title, contents, timeStamp, likes
+  		FROM code_tb
+  		ORDER BY likes desc
+  	</select>
+  	<select id="selectCodesByMemberId" resultMap="codeMap">
+  		SELECT codeId, memberId, memberNickname, title, contents, timeStamp, likes
+  		FROM code_tb
+  		WHERE memberId = #{memberId}
+  	</select>
+  	<update id="updateCode">
+  		UPDATE code_tb
+  		SET title = #{title}, contents = #{contents}, likes = #{likes}
+  		WHERE codeId = #{id}
+  	</update>
+  	<delete id="deleteCode">
+  		DELETE FROM code_tb
+  		WHERE codeId = #{id}
+  	</delete>
+  </mapper>
