@@ -23,24 +23,17 @@ public class MyPageController extends HttpServlet {
 		String memberId = request.getParameter("memberId");
 		Member member = service.searchMemberById(memberId);
 		List<Member> list = service.searchMembersOrderByPoint();
-		
-		
-//		int indexVal = list.indexOf('"'+ member.getMemberId()+'"');
-//		int rank = indexVal;
-		
 		int temp = 0;
 		int rank = 1;
 		for (Member m : list) {
 			if (m.getMemberId().equals(member.getMemberId())){
 				temp = rank;
 				break;
-			}else/* if(m.getMemberId() != member.getMemberId())*/{
+			}else{
 				rank += 1;
 			}	
 			
 		}
-
-		
 		request.setAttribute("rank", temp);
 		request.setAttribute("member", member);
 		request.getRequestDispatcher("/views/myPage.jsp").forward(request, response);

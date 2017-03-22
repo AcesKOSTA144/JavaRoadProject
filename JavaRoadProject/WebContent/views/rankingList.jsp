@@ -47,11 +47,49 @@
 		<div id="banner" class="box container">
 			<div class="row">
 				<form action="${ctx }/member/login.do" method="post">
-					<table border="1">
-					
-					
+					<table class="table table-hover table-condensed">
+
+						<thead>
+							<tr>
+								<td colspan="3"><hr></td>
+							</tr>
+							<tr>
+								<td style="float: middle" width="100">순위</td>
+								<td style="float: middle" width="600">닉네임</td>
+								<td style="float: middle" width="200">보유 포인트</td>
+							</tr>
+						</thead>
+						<tbody>
+							<c:if test="${loginMember.memberId}">
+								<tr>
+									<td>${rank }</td>
+									<td>${member.nickname }</td>
+									<td>${member.point }</td>
+								</tr>
+							</c:if>
+							<tr>
+								<td colspan="3"><hr></td>
+							</tr>
+
+							<c:choose>
+								<c:when test="${rankList eq null ||empty rankList }">
+									<tr>
+										<td colspan="6" align="center">등록된 맴버가 없습니다.</td>
+									</tr>
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${rankList}" var="member" varStatus="status">
+										<tr>
+											<td>${status.count}</td>
+											<td>${member.nickname}</td>
+											<td>${member.point }</td>
+										</tr>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
+						</tbody>
 					</table>
-					
+
 				</form>
 			</div>
 		</div>
