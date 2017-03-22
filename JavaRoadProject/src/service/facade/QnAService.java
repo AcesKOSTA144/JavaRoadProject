@@ -18,7 +18,7 @@ public interface QnAService {
 	public List<Question> searchQuestionsByContents(String keyword);
 	public List<Question> searchQuestionsByTag(String tag);
 	public List<Question> searchQuestionByNickname(String nickname); 
-	public void deleteQuestion(String id);
-	public void deleteAnswer(String id);
+	public void removeQuestion(String id);
+	public void removeAnswer(String id);
 
 }
