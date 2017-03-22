@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="store.mapper.QuizMapper">
+	<resultMap type="Quiz" id="quizMap">
+		<id column="id" property="id" />
+		<result column="title" property="title" />
+		<result column="question" property="question" />
+		<result column="options" property="options" />
+		<result column="tag" property="tag"/>
+		<result column="timeStamp" property="timeStamp" />
+		<result column="likes" property="likes" />
+		
+		<collection property="member"></collection>
+		
+	</resultMap>
+
+	<sql id="selectQuiz">
+		SELECT id, title, question, options, tag, timeStamp, likes, member
+		FROM quiz
+	</sql>
+	
+
+	<select id="selectQuizById" parameterType="string" resultMap="quizMap">
+		<include refid="selectQuiz" />
+		WHERE id = #{id}
+	</select>
+	<select id="selectQuizByTag" parameterType="string" resultMap="quizMap">
+		<include refid="selectQuiz" />
+		WHERE tag = #{tag}
+	</select>
+
+	<select id="selectQuizesOrderByLikes" resultMap="quizMap">
+		<include refid="selectQuiz" />
+		ORDER BY likes DESC
+	</select>
+
+	<insert id="createQuiz" parameterType="Quiz">
+		INSERT INTO member (id, title, question, options, tag, timeStamp, likes, member)
+		VALUES (#{id}, #{title}, #{question}, #{options}, #{tag}, #{timeStamp}, #{likes}, #{member})
+	</insert>
+	<update id="updateQuiz" parameterType="Quiz">
+		UPDATE member
+		SET title = #{title}, question = #{question}, options = #{options}, tag = #{tag}, timeStamp = #{timeStamp}, likes = #{likes}, member = #{member}"
+		WHERE id = #{id}
+	</update>
+	<delete id="deleteQuiz" parameterType="String">
+		DELETE FROM member 
+		WHERE memberId = #{memberId}
+	</delete>
+
+</mapper>
