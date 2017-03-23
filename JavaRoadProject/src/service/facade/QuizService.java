@@ -6,7 +6,7 @@ import domain.Quiz;
 
 public interface QuizService {
 	
-	List<Quiz> searchQuizById(int id);
+	Quiz searchQuizById(int id);
 	List<Quiz> searchQuizByTag(String tag);
 	List<Quiz> searchQuizesOrderByLikes();
 	

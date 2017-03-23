@@ -37,7 +37,7 @@
 						<li class="current"><a href="index.html">코스</a></li>
 						<li><a href="left-sidebar.html">코드 플레이그라운드</a></li>
 						<li><a href="qnaList.jsp">Q&amp;A</a></li>
-						<li><a href="no-sidebar.html">랭킹페이지</a></li>
+						<li><a href="${ctx }/member/ranking.do?memberId=${loginMember.memberId}">랭킹페이지</a></li>
 					</ul>
 				</nav>
 			</header>

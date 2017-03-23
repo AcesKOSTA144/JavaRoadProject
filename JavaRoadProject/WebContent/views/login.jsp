@@ -34,7 +34,7 @@
 						<li class="current"><a href="index.jsp">코스</a></li>
 						<li><a href="left-sidebar.html">코드 플레이그라운드</a></li>
 						<li><a href="right-sidebar.html">Q&amp;A</a></li>
-						<li><a href="no-sidebar.html">랭킹페이지</a></li>
+						<li><a href="${ctx }/member/ranking.do?memberId=${loginMember.memberId}">랭킹페이지</a></li>
 						<!-- <li><a href="login.jsp">Login</a></li> -->
 					</ul>
 				</nav>
@@ -111,6 +111,14 @@
 			</div>
 		</div>
 	</div>
+	
+	<!-- Scripts -->
+			<script src="${ctx }/js/jquery.min.js"></script>
+			<script src="${ctx }/js/jquery.dropotron.min.js"></script>
+			<script src="${ctx }/js/skel.min.js"></script>
+			<script src="${ctx }/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="${ctx }/js/main.js"></script>
 </body>
 
 

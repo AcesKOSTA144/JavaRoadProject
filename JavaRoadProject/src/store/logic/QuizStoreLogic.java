@@ -19,17 +19,17 @@ public class QuizStoreLogic implements QuizStore {
 	
 
 	@Override
-	public List<Quiz> selectQuizById(int id) {
+	public Quiz selectQuizById(int id) {
 		SqlSession session = factory.openSession();
-		List<Quiz> list = null;
+		Quiz quiz = null;
 		try {
 			QuizMapper mapper = session.getMapper(QuizMapper.class);
-			list = mapper.selectQuizById(id);
+			quiz = mapper.selectQuizById(id);
 		} finally {
 			session.close();
 
 		}
-		return list;
+		return quiz;
 	}
 
 	@Override

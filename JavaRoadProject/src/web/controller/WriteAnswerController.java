@@ -1,4 +1,4 @@
-package web.controller.filter;
+package web.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class QnADetailController
+ * Servlet implementation class WriteAnswerController
  */
-@WebServlet("/QnADetail.do")
-public class QnADetailController extends HttpServlet {
+@WebServlet("/WriteAnswer.do")
+public class WriteAnswerController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**

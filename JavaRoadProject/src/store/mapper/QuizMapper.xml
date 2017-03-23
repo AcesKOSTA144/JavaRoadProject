@@ -8,20 +8,26 @@
 		<id column="id" property="id" />
 		<result column="title" property="title" />
 		<result column="question" property="question" />
-		<result column="options" property="options" />
-		<result column="tag" property="tag"/>
-		<result column="timeStamp" property="timeStamp" />
+		<result column="option1" property="option1" />
+		<result column="option2" property="option2" />
+		<result column="option3" property="option3" />
+		<result column="answer" property="answer" />
+		<result column="tag" property="tag" />
+		<result column="timeStemp" property="timeStemp" />
 		<result column="likes" property="likes" />
-		
-		<collection property="member"></collection>
-		
+		<association property="member" column="memberId" javaType="Member">
+			<id property="memberId" column="memberId" />
+			<result property="nickname" column="nickname" />
+		</association>
+
 	</resultMap>
 
 	<sql id="selectQuiz">
-		SELECT id, title, question, options, tag, timeStamp, likes, member
+		SELECT id, title, question, option1, option2, option3,
+		answer, tag, timeStemp, likes, memberId, nickname
 		FROM quiz
 	</sql>
-	
+
 
 	<select id="selectQuizById" parameterType="string" resultMap="quizMap">
 		<include refid="selectQuiz" />
@@ -32,23 +38,15 @@
 		WHERE tag = #{tag}
 	</select>
 
-	<select id="selectQuizesOrderByLikes" resultMap="quizMap">
-		<include refid="selectQuiz" />
-		ORDER BY likes DESC
-	</select>
-
-	<insert id="createQuiz" parameterType="Quiz">
-		INSERT INTO member (id, title, question, options, tag, timeStamp, likes, member)
-		VALUES (#{id}, #{title}, #{question}, #{options}, #{tag}, #{timeStamp}, #{likes}, #{member})
-	</insert>
-	<update id="updateQuiz" parameterType="Quiz">
-		UPDATE member
-		SET title = #{title}, question = #{question}, options = #{options}, tag = #{tag}, timeStamp = #{timeStamp}, likes = #{likes}, member = #{member}"
-		WHERE id = #{id}
-	</update>
-	<delete id="deleteQuiz" parameterType="String">
-		DELETE FROM member 
-		WHERE memberId = #{memberId}
-	</delete>
+	<!-- <select id="selectQuizesOrderByLikes" resultMap="quizMap"> <include 
+		refid="selectQuiz" /> ORDER BY likes DESC </select> <insert id="createQuiz" 
+		parameterType="Quiz"> INSERT INTO member (id, title, question, option1, option2, 
+		option3, answer, tag, timeStamp, likes, memberId, nickname) VALUES (#{id}, 
+		#{title}, #{question}, #{options}, #{tag}, #{timeStamp}, #{likes}, #{member}) 
+		</insert> <update id="updateQuiz" parameterType="Quiz"> UPDATE member SET 
+		title = #{title}, question = #{question}, options = #{options}, tag = #{tag}, 
+		timeStamp = #{timeStamp}, likes = #{likes}, member = #{member}" WHERE id 
+		= #{id} </update> <delete id="deleteQuiz" parameterType="String"> DELETE 
+		FROM member WHERE memberId = #{memberId} </delete> -->
 
 </mapper>
