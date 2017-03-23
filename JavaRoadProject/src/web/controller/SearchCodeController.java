@@ -14,24 +14,22 @@ import domain.Code;
 import service.facade.CodeService;
 import service.logic.CodeServiceLogic;
 
-@WebServlet("/myCodeList.do")
-public class MyCodeListController extends HttpServlet {
+@WebServlet("/searchCode.do")
+public class SearchCodeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		CodeService codeService = new CodeServiceLogic();
-		String memberId = "JangDG";
-		List<Code> myCodeList = new ArrayList<>();
-		if(memberId == null || memberId == ""){
-			 
-		}else{
-			myCodeList = codeService.searchCodesByMemberId(memberId);
-		}
-		request.setAttribute("Codes", myCodeList);
-		request.getRequestDispatcher("/views/myCodeList.jsp").forward(request, response);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		CodeService codeService = new CodeServiceLogic();
+		String memberNickname = request.getParameter("name");
+		List<Code> codeList = new ArrayList<>();
+		if(memberNickname != null || memberNickname != ""){
+			codeList = codeService.searchCodesByMemberNickname(memberNickname);
+		}
+		request.setAttribute("Codes", codeList);
+		request.getRequestDispatcher("/views/codeList.jsp").forward(request, response);
 	}
-
 }

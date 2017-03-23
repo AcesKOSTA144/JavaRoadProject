@@ -10,6 +10,7 @@ public interface CodeService {
 	public List<Code> searchCodes();
 	public List<Code> searchCodesOrderByLikes();
 	public List<Code> searchCodesByMemberId(String memberId);
+	public List<Code> searchCodesByMemberNickname(String memberNickname);
 	public void writeCode(Code code);
 	public void modifyCode(Code code);
 	public void deleteCode(int id);

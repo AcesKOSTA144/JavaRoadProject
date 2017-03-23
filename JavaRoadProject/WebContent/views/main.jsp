@@ -36,6 +36,7 @@
 
 						<!-- Nav -->
 							<nav id="nav">
+							<div style = "float: right"><%@ include file="header.jspf"%></div><p style = "clear:both;"></p>
 								<ul>
 									<li><a href="#">코스</a></li>
 									<li><a href="${ctx }/codeList.do">코드 플레이그라운드</a></li>
@@ -43,6 +44,7 @@
 									<li><a href="no-sidebar.html">랭킹페이지</a></li>
 								</ul>
 							</nav>
+							<div></div><p style = "clear:both;"></p>
 					</header>
 				</div>
 		</div>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>​
 
 <c:set var="ctx">${pageContext.request.contextPath }</c:set>
     
@@ -34,9 +35,10 @@
 								<h1><a href="${ctx }/views/main.jsp">자바로드</a></h1>
 								<span>걸어서 자바속으로</span>
 							</div>
-
+					
 						<!-- Nav -->
 							<nav id="nav">
+							<div style = "float: right"><%@ include file="header.jspf"%></div><p style = "clear:both;"></p>
 								<ul>
 									<li><a href="#">코스</a></li>
 									<li class="current"><a href="${ctx }/codeList.do">코드 플레이그라운드</a></li>
@@ -55,32 +57,30 @@
 							<div class="row">
 								<div class="col-md-12">
 									<footer>
+										<form action="searchCode.do" method="post">
+										<div style="float:right; width:300px; height:100px;" >
+											<input type="text" name="name" placeholder="닉네임을 입력해주세요" style="width:80%; display:inline-block;">
+											<button type="submit" class="btn btn-success">검색</button>
+										</div>
+										</form>
 										<a href="${ctx }/views/codeRun.jsp" class="button icon fa fa-code">New Code</a>
 										<a href="myCodeList.do" class="button icon fa fa-camera-retro">내 코드보기</a>
+										<h1></h1>
+										<h1></h1>
 									</footer>
-									<h1></h1>
-									<h1></h1>
-									<div align="right">
-										<select id="emailDomain" name="emailDomain" style="display:inline-block;">
-											<option value="#">코드 제목</option>
-											<option value="#">닉네임</option>
-										</select>
-										<input type="text" name="name"> <a href="#" class="btn btn-info">검색</a>
-									</div>
-									<h1></h1>
-									<h1></h1>
 									<table class="table table-hover table-condensed">
 										<colgroup>
 											<col width="80" align="center">
 											<col width="40%">
-											<col width="80">
-											<col width="50">
-											<col width="8%">
+											<col width="100">
+											<col width="20%">
+											<col width="10%">
 										</colgroup>
 										<thead>
 											<tr>
 												<th>태그명</th>
 												<th>코드 제목</th>
+												<th>날짜</th>
 												<th>닉네임</th>
 												<th>추천수</th>
 											</tr>
@@ -94,12 +94,14 @@
 												</c:when>
 												<c:otherwise>
 													<c:forEach items="${Codes}" var="code" varStatus="status">
+													<fmt:formatDate var="newFormattedDate" value="${code.timeStamp }" pattern="yyyy-MM-dd HH:mm:ss "/>
 														<tr>
 															<td>${status.count }</td>
 															<td><a href="#">${code.title }</a></td>
+															<td>${newFormattedDate }</td>
 															<td>${code.memberNickname }</td>
-															<td align="left">${code.likes }
-															&emsp;<a class="fa fa-caret-square-o-up" href="modifyCode.do?uid=${code.id }"></a>
+															<td align="left"><a class="fa fa-caret-square-o-up" href="modifyCode.do?uid=${code.id }"></a>
+															&emsp;${code.likes }&emsp;
 															<a class="fa fa-caret-square-o-down" href="modifyCode.do?did=${code.id }"></a>
 															</td>
 															<%-- <td>

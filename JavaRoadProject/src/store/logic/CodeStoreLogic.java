@@ -70,6 +70,19 @@ public class CodeStoreLogic implements CodeStore{
 	}
 	
 	@Override
+	public List<Code> selectCodesByMemberNickname(String memberNickname) {
+		SqlSession session = factory.openSession();
+		List<Code> codeList = new ArrayList<>();
+		try{
+			CodeMapper mapper = session.getMapper(CodeMapper.class);
+			codeList = mapper.selectCodesByMemberNickname(memberNickname);
+		} finally {
+			session.close();
+		}
+		return codeList;
+	}
+	
+	@Override
 	public void insertCode(Code code) {
 		SqlSession session = factory.openSession();
 		try {

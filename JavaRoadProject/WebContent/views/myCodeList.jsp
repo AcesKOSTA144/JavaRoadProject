@@ -37,6 +37,7 @@
 
 						<!-- Nav -->
 							<nav id="nav">
+							<div style = "float: right"><%@ include file="header.jspf"%></div><p style = "clear:both;"></p>
 								<ul>
 									<li><a href="#">코스</a></li>
 									<li class="current"><a href="${ctx }/codeList.do">코드 플레이그라운드</a></li>
@@ -55,8 +56,16 @@
 							<div class="row">
 								<div class="col-md-12">
 									<footer>
+										<form action="searchCode.do" method="post">
+										<div style="float:right; width:300px; height:100px;" >
+											<input type="text" name="name" placeholder="닉네임을 입력해주세요" style="width:80%; display:inline-block;">
+											<button type="submit" class="btn btn-success">검색</button>
+										</div>
+										</form>
 										<a href="${ctx }/views/codeRun.jsp" class="button icon fa fa-code">New Code</a>
 										<a href="myCodeList.do" class="button icon fa fa-camera-retro">내 코드보기</a>
+										<h1></h1>
+										<h1></h1>
 									</footer>
 									<h1></h1>
 									<h1></h1>

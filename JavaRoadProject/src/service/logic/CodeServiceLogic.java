@@ -36,6 +36,11 @@ public class CodeServiceLogic implements CodeService{
 	}
 
 	@Override
+	public List<Code> searchCodesByMemberNickname(String memberNickname) {
+		return store.selectCodesByMemberNickname(memberNickname);
+	}
+	
+	@Override
 	public void writeCode(Code code) {
 		
 	}

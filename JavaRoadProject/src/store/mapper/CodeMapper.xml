@@ -39,6 +39,11 @@
   		FROM code_tb
   		WHERE memberId = #{memberId}
   	</select>
+  	<select id="selectCodesByMemberNickname" resultMap="codeMap">
+  		SELECT codeId, memberId, memberNickname, title, contents, timeStamp, likes
+  		FROM code_tb
+  		WHERE memberNickname = #{memberNickname}
+  	</select>
   	<update id="updateCode">
   		UPDATE code_tb
   		SET title = #{title}, contents = #{contents}, likes = #{likes}

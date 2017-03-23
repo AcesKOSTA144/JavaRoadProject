@@ -1,13 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <c:set var="ctx" value="${pageContext.request.contextPath }" />
+
 <link rel="stylesheet" href="${ctx }/css/main.css" />
+
 <p>
 	<c:choose>
 		<c:when test="${loginMember == null }">
 			<ul>
-				<li class="current">
 				<li><a href="${ctx }/member/login.do">로그인</a>|</li>
 				<li><a href="${ctx }/views/newMember.jsp">회원가입</a></li>
 			</ul>

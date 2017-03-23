@@ -37,6 +37,8 @@
 	                theme : 'eclipse'
 	            });
 	        };
+	        function saveCode(){
+	        }
 	    </script>
 	</head>
 	<body>
@@ -48,7 +50,7 @@
 
 						<!-- Logo -->
 							<div id="logo">
-								<h1><a href="#">자바로드</a></h1>
+								<h1><a href="${ctx }/main.jsp">자바로드</a></h1>
 								<span>걸어서 자바속으로</span>
 							</div>
 
@@ -67,8 +69,8 @@
 		<div id="main-wrapper">
 			<div class="container">
 				<div id="content">
-<form action="codeRun.do" method="post" >
-<div id="editor" style="float:left;">
+<form action="${ctx }/saveCode.do" method="post" enctype="multipart/form-data">
+<div id="editor">
 <textarea id="code" name="code">
 public class Program
 {
@@ -79,15 +81,15 @@ public class Program
 }
 </textarea>
 </div>
+<button type="button" class="btn btn-success">RUN</button>
+<button type="submit" class="btn btn-primary">저장</button>
+<button id="saveButton" type="button" class="btn btn-danger">신고</button>
 </form>
 <div id="output">
 	<textarea id="console" name="console" style="resize: none;" rows="15" cols="70" readonly>
 		${result }
 	</textarea>
 </div>
-<button type="submit" class="btn btn-success">RUN</button>
-<button type="button" class="btn btn-primary">저장</button>
-<button type="button" class="btn btn-danger">신고</button>
 				</div>
 			</div>
 		</div>
