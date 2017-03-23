@@ -7,6 +7,8 @@
   	<properties resource="store/datasource.properties"/>
   	<typeAliases>
   		<typeAlias type="domain.Code" alias="Code"/>
+  		<typeAlias type="domain.Member" alias="Member"/>
+		<typeAlias type="domain.Quiz" alias="Quiz"/>
   	</typeAliases>
   
   	<environments default="development">
@@ -23,6 +25,8 @@
 	
 	<mappers>
 		<mapper resource="store/mapper/CodeMapper.xml"/>
+		<mapper resource="store/mapper/MemberMapper.xml"/>
+		<mapper resource="store/mapper/QuizMapper.xml"/>
 	</mappers>  
   
   </configuration>
