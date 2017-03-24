@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Code Run</title>
+		<title>JavaRoad - Code Run</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="${ctx }/css/main.css" />
@@ -66,11 +66,13 @@
 					</header>
 				</div>
 		</div>
-		<div id="main-wrapper">
-			<div class="container">
-				<div id="content">
+		<div id="main-wrapper" >
+			<div class="container" >
+				<div id="content" >
 <form action="${ctx }/saveCode.do" method="post" enctype="multipart/form-data">
+
 <div id="editor">
+<div style="width:52%;display:inline-block;">
 <textarea id="code" name="code">
 public class Program
 {
@@ -81,15 +83,18 @@ public class Program
 }
 </textarea>
 </div>
-<button type="button" class="btn btn-success">RUN</button>
-<button type="submit" class="btn btn-primary">저장</button>
-<button id="saveButton" type="button" class="btn btn-danger">신고</button>
-</form>
-<div id="output">
-	<textarea id="console" name="console" style="resize: none;" rows="15" cols="70" readonly>
+<div id="output" style="width:45%;display:inline-block;">
+	<textarea id="console" name="console" style="resize: none;" rows="14" readonly>
 		${result }
 	</textarea>
 </div>
+</div>
+
+<button type="button" class="btn btn-success">RUN</button>
+<button type="submit" class="btn btn-primary">저장</button>
+<button type="button" class="btn btn-danger">신고</button>
+</form>
+
 				</div>
 			</div>
 		</div>

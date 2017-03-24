@@ -24,7 +24,7 @@
 		<link href="${ctx }/css/style.css" rel="stylesheet">
 		<style>
 		    .menu a{cursor:pointer;}
-		    .menu .texthidden{display:none;}
+		    .menu .texthidden{display;}
 		    
 		    .descriptionarea {
 			   min-width: 80%;
@@ -122,41 +122,31 @@
 									Maecenas tortor mauris, consectetur pellentesque dapibus eget, tincidunt vitae arcu.
 									Vestibulum purus augue, tincidunt sit amet iaculis id, porta eu purus.
 									</p>
-									<div class="container">
-								        <div class="col-md-6">
-								            <div class="panel panel-primary">
+									<div class="container" style="text-align:center;" >
+								        <div class="col-md-6" style="width:35%;background:#FF0000;"> 
+								            <div class="panel panel-primary" style="margin:0;auto;">
 								                <div class="panel-heading">
 								                    <h3 class="panel-title">
-								                        <span class="glyphicon glyphicon-circle-arrow-right"></span>원본과 수정본 중 투표해 주세요.</h3>
+								                    <span class="glyphicon glyphicon-circle-arrow-right"></span>원본과 수정본 중 투표해 주세요.</h3>
 								                </div>
 								                <div class="panel-body two-col">
-								                    <div class="row">
-								                        <div class="col-md-6">
-								                            <div class="well well-sm">
-								                                <div class="checkbox">
-								                                    <label>
-								                                        <input type="checkbox" name="group" value="original" >
-								                                        Original
-								                                    </label>
-								                                </div>
-								                            </div>
-								                        </div>
-								                        <div class="col-md-6">
-								                            <div class="well well-sm">
-								                                <div class="checkbox">
-								                                    <label>
-								                                        <input type="checkbox" name="group" value="copy">
-								                                        Copy
-								                                    </label>
-								                                </div>
-								                            </div>
-								                        </div>
-								                    </div>
+						                            <div class="well well-sm" style="width:100%;">
+						                                <div class="checkbox">
+						                                    <label>
+						                                        <input type="checkbox" name="group" value="">Original
+						                                    </label>
+						                                </div>
+						                                <div class="checkbox">
+						                                    <label>
+						                                        <input type="checkbox" name="group" value="">Copy
+						                                    </label>
+						                                </div>
+						                            </div>
 								                </div>
 								                <div class="panel-footer">
-								                    <button type="button" class="btn btn-success btn-sm">
-								                        <span class="glyphicon glyphicon-ok"></span>Vote</button>
-								                    <button type="button" class="btn btn-primary btn-sm">
+								                    <button type="button" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-circle-arrow-right"></span>
+								                        Vote</button>
+								                    <button type="button" class="btn btn-primary btn-sm" onClick="pollResult();">
 								                        View Result</button>
 								                </div>
 								            </div>
@@ -218,6 +208,9 @@
 			            }
 			        });
 			    });
+			    function pollResult(){
+			    	window.open("pollResult.jsp","","width=300, height=200, menubar=1");
+			    }
 			</script>
 	</body>
 </html>
