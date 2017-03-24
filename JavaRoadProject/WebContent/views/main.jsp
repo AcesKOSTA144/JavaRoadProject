@@ -22,7 +22,7 @@
 
 						<!-- Logo -->
 							<div id="logo">
-								<h1><a href="index.jsp">자바로드</a></h1>
+								<h1><a href="${ctx }/views/index.jsp">자바로드</a></h1>
 								<span>걸어서 자바속으로</span>
 							</div>
 						<!-- Nav -->
@@ -30,11 +30,11 @@
 							<div style = "float:right;"><%@ include file="header.jspf"%></div>
 							<p style = "clear:both;"></p>
 							<ul>
-								<li><a href="index.jsp">코스</a></li>
+								<li><a href="${ctx }/views/index.jsp">코스</a></li>
 								<li><a href="left-sidebar.html">코드 플레이그라운드</a></li>
 								<li><a href="qnaList.jsp">Q&amp;A</a></li>
 								<li><a href="${ctx }/member/ranking.do?memberId=${loginMember.memberId}">랭킹페이지</a></li>
-								<li><a href="${ctx }/member/quizFactory.do?tag=for&memberId=${loginMember.memberId}">quiz</a></li>
+								<li><a href="${ctx }/member/quizFactory.do?tag=t&memberId=${loginMember.memberId}">quiz</a></li>
 								<!-- <li><a href="login.jsp">Login</a></li> -->
 							</ul>
 						</nav>

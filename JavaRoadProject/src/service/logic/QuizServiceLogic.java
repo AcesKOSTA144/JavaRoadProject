@@ -17,8 +17,7 @@ private QuizStore store;
 
 	@Override
 	public Quiz searchQuizById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return store.selectQuizById(id);
 	}
 
 	@Override
@@ -28,25 +27,22 @@ private QuizStore store;
 
 	@Override
 	public List<Quiz> searchQuizesOrderByLikes() {
-		// TODO Auto-generated method stub
-		return null;
+		return store.selectQuizesOrderByLikes();
 	}
 
 	@Override
 	public void modifyQuiz(Quiz quiz) {
-		// TODO Auto-generated method stub
-		
+		store.updateQuiz(quiz);
 	}
 
 	@Override
 	public void wrtieQuiz(Quiz quiz) {
-		// TODO Auto-generated method stub
-		
+		store.createQuiz(quiz);
 	}
 
 	@Override
-	public void deleteQuiz(String id) {
-		// TODO Auto-generated method stub
+	public void deleteQuiz(int id) {
+		store.deleteQuiz(id);
 		
 	}
 

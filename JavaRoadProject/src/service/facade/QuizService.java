@@ -12,6 +12,6 @@ public interface QuizService {
 	
 	void modifyQuiz(Quiz quiz);
 	void wrtieQuiz(Quiz quiz);
-	void deleteQuiz(String id);
+	void deleteQuiz(int id);
 
 }

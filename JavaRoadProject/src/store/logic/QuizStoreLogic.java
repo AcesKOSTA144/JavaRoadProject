@@ -25,6 +25,7 @@ public class QuizStoreLogic implements QuizStore {
 		try {
 			QuizMapper mapper = session.getMapper(QuizMapper.class);
 			quiz = mapper.selectQuizById(id);
+			
 		} finally {
 			session.close();
 
@@ -87,15 +88,19 @@ public class QuizStoreLogic implements QuizStore {
 	}
 
 	@Override
-	public void deleteQuiz(String id) {
+	public void deleteQuiz(int id) {
 		SqlSession session = factory.openSession();
 		try {
 			QuizMapper mapper = session.getMapper(QuizMapper.class);
 			mapper.deleteQuiz(id);
+			
 			session.commit();
+			
 		} finally {
 			session.close();
 		}
 	}
 
+
+	
 }

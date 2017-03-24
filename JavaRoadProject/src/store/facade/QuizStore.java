@@ -11,6 +11,6 @@ public interface QuizStore {
 	List<Quiz> selectQuizesOrderByLikes();
 	void updateQuiz(Quiz quiz);
 	void createQuiz(Quiz quiz);
-	void deleteQuiz(String id);
+	void deleteQuiz(int id);
 
 }
