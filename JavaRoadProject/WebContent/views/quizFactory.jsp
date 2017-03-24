@@ -71,7 +71,7 @@
 										<td colspan="7"><div align="right">
 												<select id="sort" name="sort"
 													style="border-right: #ff0000 1px solid; border-left: #00ff00 1px solid; border-top: #ffff00 1px solid; border-bottom: #0000ff 1px solid;">
-													<option value="#">추천순</option>
+													<option value="${ctx}/quiz/quizFactoryOrderByLike.do?memberId=${loginMember.memberId}">추천순</option>
 													<option value="#">내 퀴즈</option>
 												</select>
 											</div></td>
