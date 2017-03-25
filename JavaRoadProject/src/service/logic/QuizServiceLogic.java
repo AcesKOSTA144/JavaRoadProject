@@ -16,7 +16,7 @@ private QuizStore store;
 	}
 
 	@Override
-	public Quiz searchQuizById(int id) {
+	public Quiz searchQuizById(String id) {
 		return store.selectQuizById(id);
 	}
 
@@ -41,7 +41,7 @@ private QuizStore store;
 	}
 
 	@Override
-	public void deleteQuiz(int id) {
+	public void deleteQuiz(String id) {
 		store.deleteQuiz(id);
 		
 	}

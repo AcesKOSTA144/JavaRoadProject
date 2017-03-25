@@ -6,8 +6,8 @@ public class Member {
     private String nickname;
     private int point;
     private String timeLimit;
-    private int currentProgress;
-    private int goalProgress;
+    private double currentProgress;
+    private double goalProgress;
     
     public Member(){}
     
@@ -47,16 +47,16 @@ public class Member {
 	public void setTimeLimit(String timeLimit) {
 		this.timeLimit = timeLimit;
 	}
-	public int getCurrentProgress() {
+	public double getCurrentProgress() {
 		return currentProgress;
 	}
-	public void setCurrentProgress(int currentProgress) {
+	public void setCurrentProgress(double currentProgress) {
 		this.currentProgress = currentProgress;
 	}
-	public int getGoalProgress() {
+	public double getGoalProgress() {
 		return goalProgress;
 	}
-	public void setGoalProgress(int goalProgress) {
+	public void setGoalProgress(double goalProgress) {
 		this.goalProgress = goalProgress;
 	}
 

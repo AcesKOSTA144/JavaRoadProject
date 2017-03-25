@@ -28,25 +28,17 @@ public class ModifyQuizController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		QuizService qService = new QuizServiceLogic();
 		MemberService mService = new MemberServiceLogic();
-		int id = Integer.parseInt(request.getParameter("quizId"));
+		String id = request.getParameter("quizId");
 		
 		Quiz quiz = qService.searchQuizById(id);
 		String title = request.getParameter("title");
-		System.out.println(title);
 		String question = request.getParameter("question");
-		System.out.println(question);
 		String option1= request.getParameter("option1");
-		System.out.println(option1);
 		String option2 = request.getParameter("option2");
-		System.out.println(option2);
 		String option3 = request.getParameter("option3");
-		System.out.println(option3);
 		String answer = request.getParameter("options");
-		System.out.println(answer);
 		String tag = request.getParameter("tag");
-		System.out.println(tag);
 //		int likes = Integer.parseInt(request.getParameter("likes"));
-//		System.out.println(likes);
 		
 		quiz.setTitle(title);
 		quiz.setQuestion(question);
@@ -65,7 +57,7 @@ public class ModifyQuizController extends HttpServlet {
 		quiz.setMember(member);
 		
 		qService.modifyQuiz(quiz);
-		response.sendRedirect(request.getContextPath() + "/member/quizFactory.do?tag=" + tag + "&memberId=" + member.getMemberId());
+		response.sendRedirect(request.getContextPath() + "/quiz/quizFactory.do?tag=" + tag + "&memberId=" + member.getMemberId());
 	}
 
 }

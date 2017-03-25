@@ -18,7 +18,7 @@ public class DeleteQuizController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		QuizService service = new QuizServiceLogic();
-		int id = Integer.parseInt(request.getParameter("id"));
+		String id = request.getParameter("id");
 		String tag = request.getParameter("tag");
 		String memberId = request.getParameter("memberId");
 		

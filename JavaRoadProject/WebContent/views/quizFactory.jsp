@@ -68,12 +68,13 @@
 									</tr>
 									<tr>
 
-										<td colspan="7"><div align="right">
-												<select id="sort" name="sort"
-													style="border-right: #ff0000 1px solid; border-left: #00ff00 1px solid; border-top: #ffff00 1px solid; border-bottom: #0000ff 1px solid;">
-													<option value="${ctx}/quiz/quizFactoryOrderByLike.do?memberId=${loginMember.memberId}">추천순</option>
-													<option value="#">내 퀴즈</option>
-												</select>
+										<td colspan="6"><div align="right">
+												<a
+													href="${ctx}/quiz/quizFactoryOrderByLike.do?memberId=${loginMember.memberId}">추천순</a>
+												<a
+													href="${ctx}/quiz/quizFactoryMyList.do?memberId=${loginMember.memberId}">내
+													퀴즈 보기</a>
+
 											</div></td>
 									</tr>
 									<tr>
@@ -101,21 +102,21 @@
 												<tbody>
 
 													<tr>
-														<td><h1>${status.count }&nbsp;&nbsp;&nbsp;<input
+														<td><h2>${status.count }&nbsp;&nbsp;&nbsp;<input
 																	type="text" id="title" name="title"
 																	value="${quiz.title }" disabled="disabled"
-																	style="border-right: #ff0000 1px solid; border-left: #00ff00 1px solid; border-top: #ffff00 1px solid; border-bottom: #0000ff 1px solid;"><br />
-															</h1> <br></td>
-														<td colspan="4"></td>
+																	style="border-right: #ff0000 1px solid; border-left: #00ff00 1px solid; border-top: #ffff00 1px solid; border-bottom: #0000ff 1px solid;">
+															</h2></td>
+														<td colspan="3" style="vertical-align: middle"></td>
 
-														<td><c:if
+														<td align="right"><c:if
 																test="${quiz.member.memberId eq loginMember.memberId}">
 																<a class="button_modify" onclick="btn_on();">수정</a>
 																<a class="button_delete"
 																	href="${ctx }/quiz/deleteQuiz.do?id=${quiz.id }&tag=${quiz.tag }&memberId=${quiz.member.memberId}">삭제</a>
 															</c:if></td>
-														<td><a class="button_report"
-															href="reportQuiz.do?id=${quiz.id }">신고하기</a></td>
+														<td colspan="2" align="right"><a
+															class="button_report" href="reportQuiz.do?id=${quiz.id }">신고하기</a></td>
 													</tr>
 
 													<tr>
@@ -150,15 +151,25 @@
 															style="border-right: #ff0000 1px solid; border-left: #00ff00 1px solid; border-top: #ffff00 1px solid; border-bottom: #0000ff 1px solid;">
 
 														</td>
-														<td rowspan="3" align="right"
-															style="vertical-align: middle"><a
-															class="fa fa-caret-square-o-up"
-															href="modifyCode.do?uid=${quiz.id }"></a></td>
-														<td rowspan="3" align="center"><h2>${quiz.likes }</h2></td>
-														<td rowspan="3" align="left"
-															style="vertical-align: middle"><a
-															class="fa fa-caret-square-o-down"
-															href="modifyCode.do?did=${quiz.id }"></a></td>
+
+
+
+														<td id=upLike colspan="1" rowspan="3" align="right"
+															style="vertical-align: middle"><p id="upBtn">
+																<a class="button_confirm"
+																	href="#<%-- ${ctx }/quiz/quizLike.do?tag=${quiz.tag }&uid=${quiz.id }&memberId=${loginMember.memberId} --%>">▲</a>
+															</p></td>
+														<td id=downLike colspan="1" rowspan="3" align="right"
+															style="vertical-align: middle"><p id="downBtn">
+															
+
+																<a class="button_confirm"
+																	href="#<%-- ${ctx }/quiz/quizLike.do?tag=${quiz.tag }&did=${quiz.id }&memberId=${loginMember.memberId} --%>">▼</a>
+															</p></td>
+														<td rowspan="3" align="center"><h2>추천수 :
+																${quiz.likes }</h2></td>
+														
+
 													</tr>
 													<tr>
 														<td><input type="radio" name="options"
@@ -422,6 +433,22 @@
 		}
 	</script>
 
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$("#downLike").hide(); 
+			$("#upLike").click(function() {
+				$("#upLike").hide();
+				$("#downLike").show();
+			});
+			$("#downLike").click(function() {
+				$("#downLike").hide();
+				$("#upLike").show();
+			});
+
+		});
+	</script>
 
 	<script src="${ctx }/js/jquery.min.js"></script>
 	<script src="${ctx }/js/jquery.dropotron.min.js"></script>

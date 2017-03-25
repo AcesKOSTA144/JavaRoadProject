@@ -31,7 +31,7 @@
 	</sql>
 
 
-	<select id="selectQuizById" parameterType="int" resultMap="quizMap">
+	<select id="selectQuizById" parameterType="string" resultMap="quizMap">
 		<include refid="selectQuiz" />
 		WHERE id = #{id}
 	</select>
@@ -45,14 +45,14 @@
 		ORDER BY likes DESC
 	</select>
 	<insert id="createQuiz" parameterType="Quiz">
-		<selectKey keyProperty="id" resultType="int" order="BEFORE">
+		<!-- <selectKey keyProperty="id" resultType="string" order="BEFORE">
 			select
 			quiz_seq.nextval FROM DUAL
-		</selectKey>
+		</selectKey> -->
 		INSERT INTO quiz (
 		id, title, question, option1, option2, option3,
 		answer, tag, timeStemp,
-		likes, memberId, nickname) VALUES (#{id},
+		likes, memberId, nickname) VALUES ('QF'||lpad(quiz_seq.nextval,4,0),
 		#{title}, #{question},
 		#{option1}, #{option2}, #{option3}, #{answer},
 		#{tag}, sysdate, #{likes},
@@ -65,7 +65,7 @@
 		 likes = #{likes}, memberId = #{member.memberId},
 		nickname= #{member.nickname} WHERE id = #{id}
 	</update>
-	<delete id="deleteQuiz" parameterType="int">
+	<delete id="deleteQuiz" parameterType="string">
 		DELETE FROM quiz WHERE id
 		= #{id}
 

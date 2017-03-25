@@ -2,7 +2,7 @@ package domain;
 
 public class Quiz {
 
-	private int id;
+	private String id;
 	private String title;
 	private String question;
 	private String option1;
@@ -15,11 +15,11 @@ public class Quiz {
 	private Member member;
 	
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId(String temp) {
+		this.id = temp;
 	}
 	public String getTitle() {
 		return title;

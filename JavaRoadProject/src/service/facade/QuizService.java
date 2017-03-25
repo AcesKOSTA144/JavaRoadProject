@@ -6,12 +6,12 @@ import domain.Quiz;
 
 public interface QuizService {
 	
-	Quiz searchQuizById(int id);
+	Quiz searchQuizById(String id);
 	List<Quiz> searchQuizByTag(String tag);
 	List<Quiz> searchQuizesOrderByLikes();
 	
 	void modifyQuiz(Quiz quiz);
 	void wrtieQuiz(Quiz quiz);
-	void deleteQuiz(int id);
+	void deleteQuiz(String id);
 
 }
