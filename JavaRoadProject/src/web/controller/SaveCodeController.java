@@ -18,7 +18,7 @@ public class SaveCodeController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		nameGenerator name = new nameGenerator();
 		Part part = request.getPart("code");
-		String fileName = name.nameGenerating(19)+".html";
+		String fileName = name.nameGenerating("19")+".html";
 		String applicationPath = request.getServletContext().getRealPath("");
         String uploadFilePath = applicationPath + "/html/codePlayground/";
 		part.write(uploadFilePath + fileName);

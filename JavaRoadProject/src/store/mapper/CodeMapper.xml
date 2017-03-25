@@ -14,7 +14,7 @@
   		<result column="likes" property="likes"/>
   	</resultMap>
   	<insert id="insertCode" useGeneratedKeys="true" parameterType="Code">
-  	<selectKey keyProperty="id" resultType="int" order="BEFORE">
+  	<selectKey keyProperty="id" resultType="String" order="BEFORE">
   		select code_tb_seq.nextval FROM DUAL
   	</selectKey>
   		INSERT INTO code_tb(codeId, memberId, memberNickname, title, contents, timeStamp, likes)

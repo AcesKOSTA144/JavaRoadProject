@@ -16,7 +16,7 @@ public class CodeServiceLogic implements CodeService{
 	}
 
 	@Override
-	public Code searchCodeById(int id) {
+	public Code searchCodeById(String id) {
 		return store.selectCodeById(id);
 	}
 
@@ -51,7 +51,7 @@ public class CodeServiceLogic implements CodeService{
 	}
 
 	@Override
-	public void deleteCode(int id) {
+	public void deleteCode(String id) {
 		store.deleteCode(id);
 	}
 }

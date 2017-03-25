@@ -18,7 +18,7 @@ public class CodeStoreLogic implements CodeStore{
 	}
 
 	@Override
-	public Code selectCodeById(int id) {
+	public Code selectCodeById(String id) {
 		SqlSession session = factory.openSession();
 		Code code = null;
 		try{
@@ -107,7 +107,7 @@ public class CodeStoreLogic implements CodeStore{
 	}
 
 	@Override
-	public void deleteCode(int id) {
+	public void deleteCode(String id) {
 		SqlSession session = factory.openSession();
 		try{
 			CodeMapper mapper = session.getMapper(CodeMapper.class);

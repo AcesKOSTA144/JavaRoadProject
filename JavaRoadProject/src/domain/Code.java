@@ -3,13 +3,14 @@ package domain;
 import java.util.Date;
 
 public class Code {
+	private String id;
 	private String title;
 	private String contents;
 	private String memberId;
 	private String memberNickname;
 	private Date timeStamp;
 	private int likes;
-	private int id;
+	
 	
 	public Code() {
 	}
@@ -62,11 +63,11 @@ public class Code {
 		this.likes = likes;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 }

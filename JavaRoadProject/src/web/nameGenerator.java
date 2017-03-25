@@ -12,7 +12,7 @@ public class nameGenerator {
 		codeService = new CodeServiceLogic();
 	}
 	
-	public String nameGenerating(int id){
+	public String nameGenerating(String id){
 		Code code = new Code();
 		String fileName = null;
 		code = codeService.searchCodeById(id);

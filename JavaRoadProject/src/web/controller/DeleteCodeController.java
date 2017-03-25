@@ -19,8 +19,8 @@ public class DeleteCodeController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		CodeService codeService = new CodeServiceLogic();
-		int id = Integer.parseInt(request.getParameter("id"));
-		String memberId = "JangDG";
+		String id = request.getParameter("id");
+		String memberId = "Zin";	// 삭제 후 내코드 보기로 가기 위해 멤버아이디를 받아와야합니다.
 		codeService.deleteCode(id);
 		List<Code> myCodeList = codeService.searchCodesByMemberId(memberId);
 		request.setAttribute("Codes", myCodeList);

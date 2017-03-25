@@ -20,7 +20,7 @@ public class MyCodeListController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		CodeService codeService = new CodeServiceLogic();
-		String memberId = "JangDG";
+		String memberId = "Emma";	// 내 코드 보기 기능으로 세션에서 멤버아이디를 가져와야 합니다.
 		List<Code> myCodeList = new ArrayList<>();
 		if(memberId == null || memberId == ""){
 			 

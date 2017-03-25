@@ -19,22 +19,24 @@ public class ModifyCodeController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		CodeService codeService = new CodeServiceLogic();
 		Code code = new Code();
-		
 		if(request.getParameter("uid") != null){
-			int upLike = Integer.parseInt(request.getParameter("uid"));
+			String upLike = request.getParameter("uid");
 			code = codeService.searchCodeById(upLike);
 			int likesCount = code.getLikes();
 			likesCount++;
 			code.setLikes(likesCount);
 			codeService.modifyCode(code);
 		}else{
-			int donwLike = Integer.parseInt(request.getParameter("did"));
+			String donwLike = request.getParameter("did");
 			code = codeService.searchCodeById(donwLike);
 			int likesCount = code.getLikes();
 			likesCount--;
-			code.setLikes(likesCount);
-			codeService.modifyCode(code);
+			if(likesCount > 0){
+				code.setLikes(likesCount);
+				codeService.modifyCode(code);
+			}
 		}
+		
 		request.getRequestDispatcher("/codeList.do").forward(request, response);
 	}
 
